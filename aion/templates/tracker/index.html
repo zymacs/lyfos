@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Home page">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+      A sample title
+    </title>
+    
+    <style>
+      * {
+	  padding: 0px;
+	  margin: 0px;
+      }
+
+      html, body {
+	  height: 100%;
+      }
+
+      body {
+	  margin: 10px;
+      }
+
+      #section-one {
+	  border: 1px solid red;
+	  border-radius: 5px;
+	  height: 50vh;
+	  display: flex;
+	  align-items: center;
+	  justify-content: space-around;
+      }
+
+      div.need-logging, div.past-records {
+	  
+	  height: 80%;
+	  min-width: 40%;
+	  border-radius: 6px;
+	  padding: 5px;
+      }
+
+      tr, th, td {
+	  border: 1px solid black;
+      }
+      td {
+	  padding: 5px;
+      }
+      
+    </style>
+    
+  </head>
+  <body>
+    <main>
+      <p> Date: 03.18.2026 </p>
+      <section id='section-one'>
+	<div class='need-logging'>
+	  <form>
+	  <table borders="True">
+	    <thead>
+	      <td> Filter by </td>
+	      <th colspan='4'>Yes/No items</th>
+	    </thead>
+	    <tr>
+	      <td>Item name</td>
+	      <td>Check</td>
+	      <td>Action date</td>
+	      <td>Start time </td>
+	      <td>End time </td>
+	    </tr>
+	    <tr>
+	      <td>Journaled?</td>
+	      <td><input type="checkbox" /></td>
+	      <td><input type="date"></td>
+	      <td><input type="time"></td>
+	      <td><input type="time"></td>
+	    </tr>
+	  </table>
+	  </form>
+	</div>
+	<div class='past-records'>
+	  <h2>Past records</h2>
+	</div>
+      </section>
+      <section>
+	<div>
+	</div>
+	<div>
+	</div>
+      </section>
+      
+    </main>
+    <footer></footer>
+  </body>
+</html>

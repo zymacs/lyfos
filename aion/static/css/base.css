@@ -1,0 +1,17 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+    
+}
+
+body {
+    background-color: #181a1b;
+    color: white;
+    padding: 10px;
+}
+
+
