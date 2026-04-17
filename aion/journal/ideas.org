@@ -1,0 +1,3 @@
+Add screenshots or images
+Add and render links
+Add custom journal templates and types

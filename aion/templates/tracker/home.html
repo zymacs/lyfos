@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<style>
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 1rem;
+}
+
+.card {
+  background: #111827;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+h1 { text-align: center; }
+
+form {
+  display: grid;
+  gap: 0.5rem;
+}
+
+input, select, textarea {
+  padding: 0.4rem;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #1f2937;
+  color: white;
+}
+
+button {
+  padding: 0.5rem;
+  border: none;
+  background: #22c55e;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.hidden { display: none; }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td, th {
+  padding: 0.5rem;
+  border-bottom: 1px solid #333;
+}
+</style>
+
+<div class="container">
+
+<h1>Aion Tracker</h1>
+
+<!-- QUICK ADD -->
+<div class="card">
+  <h2>Quick Add</h2>
+
+  <form method="POST">
+    {% csrf_token %}
+
+    {{ form.related_item }}
+
+    <div id="qty-field">
+      {{ form.quantity }}
+    </div>
+
+    <div id="bool-field">
+      {{ form.happened }} Happened
+    </div>
+
+    <div>
+      {{ form.action_start_time }}
+      {{ form.action_end_time }}
+    </div>
+
+    {{ form.action_date }}
+{% endblock %}

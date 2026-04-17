@@ -1,0 +1,25 @@
+{% load static %}
+
+<!doctype html>
+<html>
+  <head>
+      <title>
+      {% block title %}
+      {% endblock %}
+      </title>
+      <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon-48x48.png' %}">
+      <link rel='stylesheet' href='{% static  "css/base.css"  %}' />
+
+      {% block customcss %}
+      {% endblock %}
+  </head>
+
+  <body>
+    
+    {% block content %}
+    {% endblock %}
+
+   <footer> Copyright {{ year }} </footer>
+  </body>
+
+</html>

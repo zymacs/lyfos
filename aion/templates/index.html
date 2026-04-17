@@ -1,0 +1,261 @@
+<!-- AION -->
+
+<!-- * Examples -->
+<!--   - I want to become a reader (Identity: Reader) -->
+<!-- ** What that looks like -->
+<!--   1. I read 3 books a month from this and that genre  -->
+<!--   2. I am a part of a reading club [ after level 3 of previous action progression is hit] -->
+<!--   3. I maintain a blog post that posts say regularly( say once a month about what I read) -->
+<!-- ** Progressions and progression activation rules -->
+<!--      1. Read 3 books a month (progression one) [activation rule: none, its the first progression] -->
+<!--      2. Level 1: turning up for reading 10 pages daily for 15 days [activation rule: none, its the first level] -->
+<!-- 	- Enabler tasks [initially just to help, eventually to show they are needed for success] -->
+<!-- 	  + Place book on table before sleep [ track if done or not] -->
+<!-- 	  + Drink 8 cups of water daily [ track how much was taken ] -->
+<!-- 	  + Place phone away 20 mins before bed time and reflect on day (can be their own goals) [ track if done ] -->
+<!-- 	    .. -->
+<!--      3. Level 2: reading x units of books per x units of time [activation rule: level 95% success, same for the next] -->
+<!-- 	- Enabler tasks -->
+<!-- 	  + Split book into series : have days episode placed where its accesible night before. -->
+<!-- 	  + Prep pens and notebooks day before -->
+<!--      4. Level 3: reading 1 book a month [ 90% success from previous goal ] -->
+<!--      5. Level 4: reading 2 books a month -->
+<!--      6. Level 5: reading 3 books a month -->
+
+
+
+<!-- body -->
+<!-- - past records -->
+
+<!-- header -->
+<!-- - logo -->
+<!-- - profile -->
+<!-- - settings -->
+
+<!-- side bar -->
+<!-- - tracker - -->
+ <!-- - records, items, units -- ->
+<!-- - goals -->
+ <!-- - goals ... -> 
+<!-- - vision - -->
+<!-- aspirations ( i want to be:, I want to be: ) 
+<!-- - progressions -->
+<!-- - this then that then that : this (level 1 level 2 level 3): level: goal 1 goal 2 goal 3, progression rules: goal: item1 item2 item3, trials per item, progression rules per goal.
+<!-- id_aspects, progressions, 
+<!-- footer -->
+<!-- - copyright -->
+
+{% extends 'base.html' %}
+
+   {% block title %}
+      Landing page
+   {% endblock  %}
+
+   {% block customcss %}
+
+   <style>
+
+     * {
+	 margin: 0;
+	 padding: 0;
+     }
+
+     html{
+	 height: 100%;
+	 background-color: black;
+     }
+     
+     body {
+	 height: 100%;
+	 background-color: black;
+	 padding: 5px;
+     }
+
+     header {x
+	 width: 100%;
+	 border-bottom: 1px solid white;
+     }
+
+     .body-content {
+	 display: flex;
+	 flex-direction: row;
+	 justify-content: center;
+	 align-items: center;
+	 
+     }
+
+     li {
+	 list-style: none;
+     }
+
+     main {
+	 display: flex;
+	 flex-direction: column;
+	 border: 1px solid blue;
+	 margin-top: 10px;
+	 border-radius: 5px;
+	 width: 70%;
+	 
+     }
+
+     .side-bar {
+	 
+	 left: 0;
+	 margin-right: 10px;
+	 padding: 5px;
+	 border-right: 1px solid white;
+	 height: 100%;
+	 
+     }
+
+     .content {
+	 min-width: 80%;
+	 border: 1px solid cyan;
+	 padding: 5px;
+	 padding-bottom: 10px;
+	 display: flex;
+     }
+
+     footer {
+	 
+	 bottom: 0;
+	 width: 100%;
+	 text-align: center;
+	 margin-top: 10px;
+	 padding-bottom: 10px;
+     }
+
+     h2, h3 {
+	 margin-top: 5px;
+	 margin-bottom: 5px;
+	 text-align: center;
+	 padding: 10px;
+	 
+     }
+
+     .add-btn {
+	 font-size: 15px;
+	 border: 1px solid white;
+	 padding: 3px;
+	 border-radius: 6px;
+	 cursor: pointer;
+     }
+
+     .add-record-btn {
+	 cursor: pointer;
+	 padding: 5px;
+     }
+
+     .add-btn::hover {
+	 tool-tip: "Add item";
+	 
+     }
+
+     a {
+	 text-decoration: none;
+	 color: green;
+     }
+
+     td {
+	 border: 1px solid white;
+	 padding: 8px;
+     }
+
+
+     select {
+	 border: none;
+	 background: none;
+	 color: white;
+     }
+     
+   </style>
+
+   {% endblock %}
+
+ {% block content %}
+
+   <header>
+     <h1>AION</h1>
+     <nav></nav>
+   </header>
+  <div class="body-content">
+  <div class="side-bar">
+      <ul>
+	<li>Vision</li>
+	<li>Progressions</li>
+	<li>Goals</li>
+	<li>Tracker</li>
+      </ul>
+   </div>
+  <main>
+   
+  <div class="content">
+    <div>
+    <h2>Add item <span class='add-btn'>+</span></h2>
+    <h3>Filter </h3>
+    </div>
+     <table>
+     <tr>
+     <td rowspan='2'>Item</td>
+     <td colspan='3'>Qty goals</td>
+     <td colspan='2'>Y/N goals</td>
+     </tr>
+     <tr>
+      <td>Units</td>
+      <td>Target</td>
+      <td>Current</td>
+
+      <td>Target</td>
+      <td>Current</td>
+     </tr>
+    
+     <tr>
+     </td>		  
+	{% for item_name, item_data in items.items%}
+	<tr>
+	    <div class='list-item'>
+	    <td style='display:flex; justify-content:space-between;'><a href="#" style='margin-right:10px;'> H: {{ item_data.object }} </a> <span class='add-record-btn' style='border:1px solid white;'> + record </span></td>
+	      <td> {{ item_data.object.unit }} </td>
+	      <td>
+		<select>
+		  {% for goal in item_data.goals  %}
+		  <option>
+		    {{ goal.target_count_per_sample }}
+		  </option>
+		  {% endfor %}
+		</select>
+	      </td>
+	      <td>
+	        <select>
+	        {% for record in item_data.records %}
+		<option>
+		{{ record.quantity }}
+		</option>
+		{% endfor %}
+		</select>
+		</td>
+
+		<td>
+		<select>
+		{%for goal in item_data.goals %}
+		  <option> 1  </option>
+		{% endfor %}
+		</select>
+		</td>
+		
+		<td>
+		<select>
+		{% for record in item_data.records %}
+		<option> {{ record.happened }} </option>
+		 {% endfor %}
+		</select>
+		</td>
+	    </div>
+	</tr>
+	{% endfor %}
+      </table>
+    </div>
+  </main>
+  </div>
+  
+  {% endblock %}
